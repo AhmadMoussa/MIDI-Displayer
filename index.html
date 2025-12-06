@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <script
+        src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
+
+</head>
+
+<body>
+    <midi-player
+        src="https://magenta.github.io/magenta-js/music/demos/melody.mid"
+        sound-font visualizer="#myVisualizer">
+    </midi-player>
+    <midi-visualizer type="piano-roll"
+        id="myVisualizer"></midi-visualizer>
+
+    <script>
+        // You maintain this list manually — or generate it once using Node, but after that it’s static.
+        const midis = [
+            "Updated Intro.mid",
+        ];
+
+        const list = document.getElementById("list");
+
+        midis.forEach(name => {
+            const li = document.createElement("li");
+            const link = document.createElement("a");
+            link.href = `player.html?file=${encodeURIComponent(name)}`;
+            link.textContent = name;
+            li.appendChild(link);
+            list.appendChild(li);
+        });
+    </script>
+</body>
+
+</html>
